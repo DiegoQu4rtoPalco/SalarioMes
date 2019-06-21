@@ -1,7 +1,10 @@
 package entities;
 
 import java.util.ArrayList;
+<<<<<<< HEAD
 import java.util.Calendar;
+=======
+>>>>>>> 5f93ac4e4b60efa4b6b55f0b7744e1556deeac0c
 import java.util.List;
 
 import entities.enums.WorkerLevel;
@@ -13,9 +16,15 @@ public class Worker {
 	private Double baseSalary;
 	
 	private Department department;
+<<<<<<< HEAD
 	private List<HourContract> contracts = new ArrayList<>();
 	
 	public Worker() {
+=======
+	private List<HoursContract> contracts = new ArrayList<>();
+	
+	public Workers() {
+>>>>>>> 5f93ac4e4b60efa4b6b55f0b7744e1556deeac0c
 		
 	}
 
@@ -26,6 +35,7 @@ public class Worker {
 		this.baseSalary = baseSalary;
 		this.department = department;
 	}
+<<<<<<< HEAD
 
 	public String getName() {
 		return name;
@@ -90,6 +100,8 @@ public class Worker {
 		}
 		return sum;
 	}
+=======
+>>>>>>> 5f93ac4e4b60efa4b6b55f0b7744e1556deeac0c
 	
 	
 

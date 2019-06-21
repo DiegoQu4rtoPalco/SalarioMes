@@ -1,7 +1,10 @@
 package entities;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+
+import entities.enums.WorkerLevel;
 
 public class Worker {
 	
@@ -10,9 +13,9 @@ public class Worker {
 	private Double baseSalary;
 	
 	private Department department;
-	private List<HoursContract> contracts = new ArrayList<>();
+	private List<HourContract> contracts = new ArrayList<>();
 	
-	public Workers() {
+	public Worker() {
 		
 	}
 
@@ -22,6 +25,70 @@ public class Worker {
 		this.level = level;
 		this.baseSalary = baseSalary;
 		this.department = department;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public WorkerLevel getLevel() {
+		return level;
+	}
+
+	public void setLevel(WorkerLevel level) {
+		this.level = level;
+	}
+
+	public Double getBaseSalary() {
+		return baseSalary;
+	}
+
+	public void setBaseSalary(Double baseSalary) {
+		this.baseSalary = baseSalary;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
+
+	public List<HourContract> getContracts() {
+		return contracts;
+	}
+
+	//setContract tem que ser removido.
+	
+	
+	
+	public void addContract(HourContract contract ) {
+		contracts.add(contract);
+	}
+	
+	public void removeContract(HourContract contract) {
+		contracts.remove(contract);
+	}
+	
+	
+	//Metodo mes e ano.
+	public double income (int year, int month) {
+		double sum = baseSalary;
+		Calendar cal = Calendar.getInstance();
+		for( HourContract c : contracts) {
+			cal.setTime(c.getDate());
+			int c_year = cal.get(Calendar.YEAR);
+			int c_month = cal.get(Calendar.MONTH);
+			if(year == c_year && month == c_month) {
+				sum += c.totalValue();
+			}
+		}
+		return sum;
 	}
 	
 	
